@@ -13,7 +13,7 @@ It,s a flutter project about booking travel, using :
 
 # ScreenShot
 
-<img src="https://user-images.githubusercontent.com/58815062/162922334-27427edd-8296-491e-958f-0c4e4dcfe82b.png" style=" width:100px ; height:100px " />
+<img src="https://user-images.githubusercontent.com/58815062/162922334-27427edd-8296-491e-958f-0c4e4dcfe82b.png" style=" width:250px ; height:250px " />
 
 ![Login Screen](https://user-images.githubusercontent.com/58815062/162922334-27427edd-8296-491e-958f-0c4e4dcfe82b.png)
 ![Loading](https://user-images.githubusercontent.com/58815062/162922298-87e55abe-8954-48fd-966a-63b5fe340cfa.png)
