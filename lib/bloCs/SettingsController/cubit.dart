@@ -19,6 +19,9 @@ class SettingsController extends Cubit<SettingsStates>{
 
   static SettingsController get(context) => BlocProvider.of(context);
 
+  final formkey = GlobalKey<FormState>();
+
+
   bool prefsChecker=false;
   String imagePass="";
 
@@ -36,15 +39,23 @@ class SettingsController extends Cubit<SettingsStates>{
 
 
   Future<void> checkPrefs() async{
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    if(!prefsChecker){
-      if(pref.containsKey("UserImage")){
-        imagePass=pref.getString('UserImage')!;
-        prefsChecker=true;
-        emit(PrefsCheckingState());
-      }else{
-        prefsChecker=true;
-      }
+    // SharedPreferences pref = await SharedPreferences.getInstance();
+    // if(!prefsChecker){
+    //   if(pref.containsKey("UserImage")){
+    //     imagePass=pref.getString('UserImage')!;
+    //     prefsChecker=true;
+    //     emit(PrefsCheckingState());
+    //   }else{
+    //     prefsChecker=true;
+    //   }
+    // }
+
+    if(LoginedUser.photoUrl.isNotEmpty){
+      prefsChecker=true;
+      imagePass=LoginedUser.photoUrl;
+      emit(PrefsCheckingState());
+    }else{
+      prefsChecker=false;
     }
 
   }
@@ -56,11 +67,14 @@ class SettingsController extends Cubit<SettingsStates>{
 
     try {
 
-      UserCredential credential = await auth.signInWithEmailAndPassword(
-        email: LoginedUser.email, password: LoginedUser.password,
-      );
+      // UserCredential credential = await auth.signInWithEmailAndPassword(
+      //   email: LoginedUser.email, password: LoginedUser.password,
+      // );
 
-      await credential.user?.updatePassword(newPassword.value.text);
+      // await credential.user?.updatePassword(newPassword.value.text);
+
+
+      await LoginedUser.user?.updatePassword(newPassword.value.text);
 
       return true;
 
@@ -164,8 +178,10 @@ class SettingsController extends Cubit<SettingsStates>{
     imagePass=pickedImage.path;
     //emit(GetCameraImage());
     if(image.path!=""){
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('UserImage', image.path);
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
+      // prefs.setString('UserImage', image.path);
+      await LoginedUser.user?.updatePhotoURL(image.path);
+      LoginedUser.photoUrl=image.path;
     }
     Navigator.of(context).pop();
 
@@ -179,8 +195,10 @@ class SettingsController extends Cubit<SettingsStates>{
     imagePass=pickedImage.path;
     //emit(GetCameraImage());
     if(image.path!=""){
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('UserImage', image.path);
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
+      // prefs.setString('UserImage', image.path);
+      await LoginedUser.user?.updatePhotoURL(image.path);
+      LoginedUser.photoUrl=image.path;
     }
     debugPrint(image.path);
     Navigator.of(context).pop();

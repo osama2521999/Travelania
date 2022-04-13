@@ -28,6 +28,7 @@ class SharedLayout extends StatelessWidget {
         }
       },
       child: Scaffold(
+
         ///backgroundColor: appScreensColor,
         extendBodyBehindAppBar: extendBodyBehindAppBar ?? false,
         key: _scaffoldKey,

@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:bookingapp/constant/constant.dart';
+import 'package:bookingapp/model/LoginedUser.dart';
 import 'package:bookingapp/router/RoutePaths.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,6 +33,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
   Widget build(BuildContext context) {
 
     Size size = MediaQuery.of(context).size;
+    double fontSize = (size.width)/25;
 
     return ClipRRect(
       borderRadius: const BorderRadius.only(
@@ -81,13 +83,13 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 PopupMenuItem(
                   value: 1,
                   child: ListTile(
-                    title: const Text(
+                    title: Text(
                       'Main Screen',
-                      //textAlign: TextAlign.right,
-                      style: TextStyle(
-                        fontFamily: "Lemonada",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                      style: fixedHeadTextStyle(
+                        family: "Lemonada",
+                        weight: FontWeight.bold,
+                        //fontSize: 16,
+                        font: fontSize,
                       ),
                     ),
                     onTap: () {
@@ -105,8 +107,13 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   child: ListTile(
                     title: Text(
                       'About App',
-                     //textAlign: TextAlign.right,
-                      style: fixedHeadTextStyle(family: "Lemonada",font: 16,weight: FontWeight.bold)
+                      style: fixedHeadTextStyle(
+                          family: "Lemonada",
+                          weight: FontWeight.bold,
+                          //fontSize: 16,
+                          font: fontSize,
+                          color: Colors.lightGreen
+                      )
                     ),
                     onTap: () {
 
@@ -114,6 +121,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                     trailing: const Icon(
                       Icons.info_outline,
                       size: 25,
+                      color: Colors.lightGreen,
                     ),
                   ),
                 ),
@@ -121,13 +129,13 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 PopupMenuItem(
                   value: 1,
                   child: ListTile(
-                    title: const Text(
+                    title: Text(
                       'Setting',
-                      //textAlign: TextAlign.right,
-                      style: TextStyle(
-                        fontFamily: "Lemonada",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                      style: fixedHeadTextStyle(
+                        family: "Lemonada",
+                        weight: FontWeight.bold,
+                        //fontSize: 16,
+                        font: fontSize,
                         color: Colors.blueAccent,
                       ),
                     ),
@@ -145,13 +153,13 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 PopupMenuItem(
                   value: 1,
                   child: ListTile(
-                    title: const Text('Sign Out',
-                        //textAlign: TextAlign.right,
-                        style: TextStyle(
-                          fontFamily: "Lemonada",
+                    title: Text('Sign Out',
+                        style: fixedHeadTextStyle(
+                          family: "Lemonada",
                           color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          weight: FontWeight.bold,
+                          //fontSize: 16,
+                          font: fontSize,
                         )),
                     onTap: () {
                       //Navigator.of(context).pushNamedAndRemoveUntil(RoutePaths.start, (route) => false);
@@ -173,15 +181,25 @@ class _DrawerMenuState extends State<DrawerMenu> {
   }
 
   Future<void> checkPrefs() async{
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if(prefs.containsKey("UserImage")){
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // if(prefs.containsKey("UserImage")){
+    //   setState(() {
+    //     prefsChecker=true;
+    //     imagePass=prefs.getString('UserImage')!;
+    //   });
+    // }else{
+    //   prefsChecker=false;
+    // }
+
+    if(LoginedUser.photoUrl.isNotEmpty){
       setState(() {
         prefsChecker=true;
-        imagePass=prefs.getString('UserImage')!;
+        imagePass=LoginedUser.photoUrl;
       });
     }else{
       prefsChecker=false;
     }
+
   }
 
 }

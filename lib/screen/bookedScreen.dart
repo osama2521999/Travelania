@@ -5,7 +5,6 @@ import 'package:bookingapp/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../router/RoutePaths.dart';
 
 class BookedScreen extends StatelessWidget {
   const BookedScreen({Key? key}) : super(key: key);
@@ -113,6 +112,8 @@ class BookedScreen extends StatelessWidget {
                                         ),
                                         onPressed:() {
                                           ///Call method of cancel Travel
+
+                                          controller.loading(controller.travels[index].id);
 
                                         },
                                         style: fixedButtonStyle(12,buttonColor: Colors.transparent,elevation: 0),

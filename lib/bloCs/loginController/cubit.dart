@@ -46,6 +46,9 @@ class LoginController extends Cubit<LoginStates>{
       LoginedUser.email=email.value.text;
       LoginedUser.password=password.value.text;
 
+      LoginedUser.photoUrl=loginTest.user!.photoURL ?? '' ;
+      LoginedUser.user = auth.currentUser;
+
       return true;
 
 
