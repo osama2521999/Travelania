@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:bookingapp/bloCs/SettingsController/states.dart';
 import 'package:bookingapp/model/LoginedUser.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -19,7 +19,7 @@ class SettingsController extends Cubit<SettingsStates>{
 
   static SettingsController get(context) => BlocProvider.of(context);
 
-  final formkey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
 
   bool prefsChecker=false;
@@ -30,7 +30,7 @@ class SettingsController extends Cubit<SettingsStates>{
   TextEditingController newPassword = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  //final FirebaseAuth auth = FirebaseAuth.instance;
 
   String? errorMessage;
 
@@ -75,6 +75,7 @@ class SettingsController extends Cubit<SettingsStates>{
 
 
       await LoginedUser.user?.updatePassword(newPassword.value.text);
+
 
       return true;
 

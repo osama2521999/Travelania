@@ -1,4 +1,3 @@
-
 import 'package:bookingapp/bloCs/loginController/states.dart';
 import 'package:bookingapp/constant/Dialogs.dart';
 import 'package:bookingapp/model/LoginedUser.dart';
@@ -10,7 +9,6 @@ import '../../constant/constant.dart';
 import '../../router/RoutePaths.dart';
 
 
-
 class LoginController extends Cubit<LoginStates>{
 
   LoginController(this.context) : super(InitialState());
@@ -18,8 +16,6 @@ class LoginController extends Cubit<LoginStates>{
   var context;
 
   static LoginController get(context) => BlocProvider.of(context);
-
-  final formkey = GlobalKey<FormState>();
 
   TextEditingController email = TextEditingController() ;
   TextEditingController password = TextEditingController();

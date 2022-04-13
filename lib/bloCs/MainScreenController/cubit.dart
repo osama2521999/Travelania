@@ -1,4 +1,3 @@
-
 import 'package:bookingapp/bloCs/MainScreenController/states.dart';
 import 'package:bookingapp/model/Travel.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -59,10 +58,6 @@ class MainScreenController extends Cubit<MainScreenStates>{
     debugPrint('Travels : ${travels.length}');
 
   }
-
-
-
-
 
 
 }

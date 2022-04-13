@@ -29,11 +29,12 @@ const Color appThemColor=color;
 ///   }
 /// }
 
+String emailFormat ="[a-zA-Z0-9\+\.\%\-\+]{1,256}"+"\\@"+"[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"+"("+"\\."+"[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"+")+";
+
 List<TextInputFormatter> justNum=[
   LengthLimitingTextInputFormatter(3),
   FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
 ];
-
 
 
 double constFieldWidth(BuildContext context,double scale){
@@ -111,3 +112,4 @@ TextStyle fixedHeadTextStyle({double? font, String? family,FontStyle? style,Font
       fontSize: font
   );
 }
+

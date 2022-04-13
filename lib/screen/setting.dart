@@ -372,7 +372,7 @@ class Settings extends StatelessWidget {
                         ],
                       ),
                       Form(
-                        key: controller.formkey,
+                        key: controller.formKey,
                         child: Column(
                           children: [
                             Container(
@@ -443,7 +443,7 @@ class Settings extends StatelessWidget {
                                     ),
                                   ),
                                   onPressed:() {
-                                    if(controller.formkey.currentState!.validate()){
+                                    if(controller.formKey.currentState!.validate()){
                                       controller.loading();
                                     }
                                   },
@@ -487,179 +487,5 @@ class Settings extends StatelessWidget {
     );
 
   }
-
-  // Widget screenBody(context){
-  //
-  //   var controller = SettingsController.get(context);
-  //   Size size = MediaQuery.of(context).size;
-  //   double fontSize = (size.width)/25;
-  //
-  //   return SingleChildScrollView(
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children:  [
-  //
-  //         Padding(padding: EdgeInsets.only(top: (size.height)*.07)),
-  //
-  //         Container(
-  //           width: size.width,
-  //           height: 50,
-  //           padding: const EdgeInsets.only(right: 10),
-  //           margin: const EdgeInsets.only(left: 10,bottom: 20),
-  //           child: ListView(
-  //             //reverse: true,
-  //             scrollDirection: Axis.horizontal,
-  //             children: [
-  //               Text("Edit Your Profile : ",style: fixedHeadTextStyle(font: 18,family: "Lemonada"),textDirection: TextDirection.ltr),
-  //             ],
-  //           ),
-  //         ),
-  //         // Directionality(
-  //         //   ///textDirection: TextDirection.rtl,
-  //         //   textDirection: TextDirection.ltr,
-  //         //   child: SwitchListTile(
-  //         //     title: Text('Change Mode',style: fixedHeadTextStyle(family: "Lemonada"),),
-  //         //     subtitle: Text(controller.modeName,style: fixedHeadTextStyle(),),
-  //         //     activeColor: appThemColor,
-  //         //     value: controller.darkMode,
-  //         //     onChanged: (bool value) {
-  //         //       controller.changeMode(value);
-  //         //     },
-  //         //   ),
-  //         // ),
-  //         Stack(
-  //           children: [
-  //             controller.imagePass.isEmpty ?Container(
-  //               margin: const EdgeInsets.only(bottom: 30),
-  //               width: (size.width)*.35,
-  //               height: (size.width)*.35,
-  //               child: ClipOval(child: controller.loadImage()),
-  //               decoration: BoxDecoration(
-  //                   borderRadius: BorderRadius.circular(100),
-  //                   border: Border.all(
-  //                       color: Colors.grey,
-  //                       width: 2
-  //                   )
-  //               ),
-  //             ):
-  //             Container(
-  //               margin: const EdgeInsets.only(bottom: 30),
-  //               height:  (size.width)*.35,
-  //               width:  (size.width)*.35,
-  //               decoration:  BoxDecoration(
-  //                 border: Border.all(
-  //                     color: Colors.grey,
-  //                     width: 2
-  //                 ),
-  //                 image: DecorationImage(
-  //                   image: FileImage(File(controller.imagePass)),
-  //                   fit: BoxFit.fill,
-  //                 ),
-  //                 shape: BoxShape.circle,
-  //               ),
-  //             ),
-  //
-  //             Padding(
-  //               padding: const EdgeInsets.only(top: 120,left: 108),
-  //               child: IconButton(
-  //                 onPressed: () => controller.imageDialog(),
-  //                 icon: const Icon(Icons.camera_alt_outlined),
-  //                 tooltip: "Change your Photo",
-  //                 color: appThemColor,
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //         Form(
-  //           key: controller.formkey,
-  //           child: Column(
-  //             children: [
-  //               Container(
-  //                 child:  Directionality(
-  //                   ///textDirection: TextDirection.rtl,
-  //                   textDirection: TextDirection.ltr,
-  //                   child: TextFormField(
-  //                     style: fixedHeadTextStyle(),
-  //                     controller: controller.newPassword,
-  //                     validator: (value) {
-  //                       if (value == null || value.isEmpty) {
-  //                         return 'input New Password';
-  //                       }
-  //                       return null;
-  //                     },
-  //                     decoration: fixedInputDecoration("New Password",15.0,null),
-  //                     keyboardType: TextInputType.number,
-  //                     obscureText: true,
-  //                   ),
-  //                 ),
-  //                 width: constFieldWidth(context,.6),
-  //                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-  //               ),
-  //               Container(
-  //                 child:  Directionality(
-  //                   ///textDirection: TextDirection.rtl,
-  //                   textDirection: TextDirection.ltr,
-  //                   child: TextFormField(
-  //                     style: fixedHeadTextStyle(),
-  //                     /// textAlign: TextAlign.right,
-  //                     controller: controller.confirmPassword,
-  //                     validator: (value) {
-  //                       if (value == null || value.isEmpty) {
-  //                         return 'input Confirm Password';
-  //                       }
-  //                       return null;
-  //                     },
-  //                     decoration: fixedInputDecoration("Confirm Password",15.0,null),
-  //                     keyboardType: TextInputType.number,
-  //                     obscureText: true,
-  //                   ),
-  //                 ),
-  //                 width: constFieldWidth(context,.6),
-  //                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-  //               ),
-  //               Container(
-  //                 child: DecoratedBox(
-  //                   decoration:  BoxDecoration(
-  //                       borderRadius: BorderRadius.circular(12),
-  //                       gradient: const LinearGradient(
-  //                         colors: [
-  //                           ///Colors.yellowAccent,
-  //                           Colors.blue,
-  //                           Color.fromRGBO(143, 148, 251, .6),
-  //                         ],
-  //                         begin: Alignment.topLeft,
-  //                         end: Alignment.bottomRight,
-  //                       )
-  //                   ),
-  //                   child: ElevatedButton(
-  //                     child: Text(
-  //                       "Change Password",
-  //                       style: TextStyle(
-  //                           color: Colors.white,
-  //                           fontSize:  fontSize ,
-  //                           fontWeight: FontWeight.bold,
-  //                           fontFamily: 'Amiri'
-  //                       ),
-  //                     ),
-  //                     onPressed:() {
-  //                       if(controller.formkey.currentState!.validate()){
-  //                         controller.loading();
-  //                       }
-  //                     },
-  //                     style: fixedButtonStyle(12,buttonColor: Colors.transparent,elevation: 0),
-  //                   ),
-  //                 ),
-  //                 padding:const EdgeInsets.fromLTRB(0, 10, 0, 0),
-  //                 width: buttonsHeightWidth(context, 0, .6)[0],
-  //                 height: buttonsHeightWidth(context, .08, 0)[1] ,
-  //
-  //               ),//Button
-  //             ],
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
 
 }

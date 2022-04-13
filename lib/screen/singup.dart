@@ -47,7 +47,7 @@ class SignUp extends StatelessWidget {
                     var controller = SingUpController.get(context);
 
                     return Form(
-                      key: controller.formkey ,
+                      key: controller.formKey ,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -171,7 +171,7 @@ class SignUp extends StatelessWidget {
                                 ),
                                 onPressed:() {
 
-                                  if(controller.formkey.currentState!.validate()){
+                                  if(controller.formKey.currentState!.validate()){
                                     controller.loading();
                                     //controller.singUp(controller.userName.value.text, controller.password.value.text);
                                   }

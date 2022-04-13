@@ -20,7 +20,7 @@ class SingUpController extends Cubit<SignUpStates> {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
 
-  final formkey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   final FirebaseAuth auth = FirebaseAuth.instance;
   final referenceDatabase = FirebaseDatabase.instance;

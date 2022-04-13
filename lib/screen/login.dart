@@ -63,8 +63,7 @@ class Login extends StatelessWidget {
                                 if (value == null || value.isEmpty) {
                                   return 'Input Valid Text';
                                 }
-                                String p ="[a-zA-Z0-9\+\.\%\-\+]{1,256}"+"\\@"+"[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"+"("+"\\."+"[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"+")+";
-                                RegExp regexp = RegExp(p);
+                                RegExp regexp = RegExp(emailFormat);
                                 if(regexp.hasMatch(value)){
                                   return null;
                                 }
