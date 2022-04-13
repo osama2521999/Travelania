@@ -22,7 +22,7 @@ class AppRouter{
         return MaterialPageRoute(builder: (_) =>   const MainScreen());
 
       case RoutePaths.settings:
-        return MaterialPageRoute(builder: (_) =>  Settings());
+        return MaterialPageRoute(builder: (_) =>  const Settings());
 
       case RoutePaths.bookingScreen:
         return MaterialPageRoute(builder: (_) =>   BookingScreen(argument: settings.arguments));
